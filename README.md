@@ -1,0 +1,2 @@
+# EgitimTakipListesi
+Eğitim Takip Listesi
