@@ -2,6 +2,8 @@
 
 <p align="center"><img src="https://socialify.git.ci/epbalaban01/EgitimTakipListesi/image?name=1&amp;owner=1&amp;theme=Light" alt="project-image"></p>
 
+<h2>🧐 Features</h2>
+
 Windows form uygulamasını ve Visual Studio'yu kullanarak Eğitim Takip Listesi otomasyonu yaptım.
 
 Bu uygulama da eklediğiniz veya katıldığınız eğitimlere buraya yazarak daha kolay bir şekilde ulaşabilirsiniz. Normalde ben bunları excel'de tutuyordum. Ancak bugün eğitim olduğunu unutunca eğitimleri kaçırıryordum. Bende bunu hatırlatma programı yapmak istedim. Yaptığımda daha kolay bir şekilde ulaşabiliyorum. Bu program da toplamda 6 tane eğitim firması eklendi. Her bir eğitimleri veritabanına kaydederek kolay bir şekilde halledebiliyorum.
