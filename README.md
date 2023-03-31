@@ -2,7 +2,7 @@
 
 <p align="center"><img src="https://socialify.git.ci/epbalaban01/EgitimTakipListesi/image?name=1&amp;owner=1&amp;theme=Light" alt="project-image"></p>
 
-<h2>🧐 Features</h2>
+<h2>Açıklama</h2>
 
 Windows form uygulamasını ve Visual Studio'yu kullanarak Eğitim Takip Listesi otomasyonu yaptım.
 
@@ -14,7 +14,8 @@ Programı geliştirmek istiyorsanız indirip geliştirebilirsiniz. Programın ya
 - [x] Türkçe
 - [ ] İngilizce
 
-<b>Özellikler</b>
+<h2>🧐 Özellikler</h2>
+
 
 - [x] Arayüzde ufak değişiklikler yapıldı.
 - [x] Tarih ve saat düzenlemeler yapıldı.
