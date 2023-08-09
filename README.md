@@ -42,15 +42,19 @@ Programı geliştirmek istiyorsanız indirip geliştirebilirsiniz. Programın ya
 | <p align="center"><b>Eğitim Güncellemesi</b></p> |
 | ![4](https://user-images.githubusercontent.com/42430554/214224632-508d3853-f9e9-4361-8fe9-141f833cf4ad.png) |
 | <p align="center"><b>Eğitim Ekleme</b></p> |
-| ![5](https://user-images.githubusercontent.com/42430554/214224637-a5d37ca3-126e-4735-83f3-1b161e0057f8.png) |
+| ![5](https://github.com/epbalaban01/EgitimTakipListesi/assets/42430554/265996a9-393a-4233-8e03-6a23772ffe7c) |
+| <p align="center"><b>.ics Ekleme</b></p> |
+| ![6](https://github.com/epbalaban01/EgitimTakipListesi/assets/42430554/f7bd923e-59b1-4ccb-9577-ee9f22f3b612) |
+| <p align="center"><b>.ics Hazır Ekleme</b></p> |
+| ![7](https://github.com/epbalaban01/EgitimTakipListesi/assets/42430554/30dc86c2-904a-44f7-9345-c729124031cf) |
 | <p align="center"><b>Veritabanı Seçmek</b></p> |
-| ![6](https://user-images.githubusercontent.com/42430554/214224641-ec29f1f9-1b63-45ae-ac03-26b3665cc9a9.png) &nbsp;&nbsp; ![7](https://user-images.githubusercontent.com/42430554/214224642-4f1d1e17-6e9c-4fb4-8cae-ed1497a27c12.png) |
+| ![8](https://user-images.githubusercontent.com/42430554/214224641-ec29f1f9-1b63-45ae-ac03-26b3665cc9a9.png) &nbsp;&nbsp; ![7](https://user-images.githubusercontent.com/42430554/214224642-4f1d1e17-6e9c-4fb4-8cae-ed1497a27c12.png) |
 | <p align="center"><b>İki farklı veritabanı</b></p> |
-| ![8](https://user-images.githubusercontent.com/42430554/214224645-a80dc398-6469-4914-87ea-c2496255fa56.png) |
+| ![9](https://user-images.githubusercontent.com/42430554/214224645-a80dc398-6469-4914-87ea-c2496255fa56.png) |
 | <p align="center"><b>Arayüz Tasarımı</b></p> |
-| ![9](https://user-images.githubusercontent.com/42430554/214224649-55139854-4e3c-4a08-9e1a-a9b5cdcc441a.png) |
+| ![10](https://user-images.githubusercontent.com/42430554/214224649-55139854-4e3c-4a08-9e1a-a9b5cdcc441a.png) |
 | <p align="center"><b>SQL Tablosu</b></p> |
-| ![10](https://user-images.githubusercontent.com/42430554/214224651-a60456ec-649a-4091-9bbc-75618f3385f4.png) | 
+| ![11](https://user-images.githubusercontent.com/42430554/214224651-a60456ec-649a-4091-9bbc-75618f3385f4.png) | 
 | <p align="center"><b>Access Tablosu</b></p> |
 #
 <b>Programcıdan Notlar</b>
