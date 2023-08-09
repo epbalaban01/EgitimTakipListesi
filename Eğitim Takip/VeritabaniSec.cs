@@ -48,7 +48,9 @@ namespace Eğitim_Takip
                             if (sqlsecili.Checked == true)
                             {
                                 baglanti2.Open();
-                                SqlCommand tekrar = new SqlCommand("select count(*) from gaib where egitim_adi='" + a + "'", baglanti2);
+                                string query = "SELECT COUNT(*) FROM gaib WHERE egitim_adi = @egitimAdi";
+                                SqlCommand tekrar = new SqlCommand(query, baglanti2);
+                                tekrar.Parameters.AddWithValue("@egitimAdi", a);
                                 int sonuc = (int)tekrar.ExecuteScalar();
                                 if (sonuc == 0)
                                 {
@@ -108,7 +110,6 @@ namespace Eğitim_Takip
                                 kayit.Parameters.AddWithValue("@saat", g);
                                 kayit.Parameters.AddWithValue("@katildi_mi", h);
                                 kayit.ExecuteNonQuery();
-                                MessageBox.Show("Yeni eğitim başarıyla eklendi!", "Eğitim Ekle", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 kayit.Dispose();
                                 baglanti.Close();
                                 /*SQL'A KAYDET */
@@ -125,7 +126,7 @@ namespace Eğitim_Takip
                                 kayit1.Parameters.AddWithValue("@zoom_link", f);
                                 kayit1.Parameters.AddWithValue("@saat", g);
                                 kayit1.ExecuteNonQuery();
-                                MessageBox.Show("Yeni eğitim başarıyla eklendi!", "Access Veritabanı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show("Yeni eğitim başarıyla eklendi!", "SQL & Access Veritabanı", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 kayit1.Dispose();
                                 baglanti1.Close();
                                 /*VERİTABANINA KAYDET*/
@@ -213,7 +214,6 @@ namespace Eğitim_Takip
                                 kayit.Parameters.AddWithValue("@saat", g);
                                 kayit.Parameters.AddWithValue("@katildi_mi", h);
                                 kayit.ExecuteNonQuery();
-                                MessageBox.Show("Yeni eğitim başarıyla eklendi!", "Eğitim Ekle", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 kayit.Dispose();
                                 baglanti.Close();
                                 /*SQL'A KAYDET */
@@ -230,7 +230,7 @@ namespace Eğitim_Takip
                                 kayit1.Parameters.AddWithValue("@zoom_link", f);
                                 kayit1.Parameters.AddWithValue("@saat", g);
                                 kayit1.ExecuteNonQuery();
-                                MessageBox.Show("Yeni eğitim başarıyla eklendi!", "Access Veritabanı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show("Yeni eğitim başarıyla eklendi!", "SQL & Access Veritabanı", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 kayit1.Dispose();
                                 baglanti1.Close();
                                 /*VERİTABANINA KAYDET*/
@@ -318,7 +318,6 @@ namespace Eğitim_Takip
                                 kayit.Parameters.AddWithValue("@saat", g);
                                 kayit.Parameters.AddWithValue("@katildi_mi", h);
                                 kayit.ExecuteNonQuery();
-                                MessageBox.Show("Yeni eğitim başarıyla eklendi!", "Eğitim Ekle", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 kayit.Dispose();
                                 baglanti.Close();
                                 /*SQL'A KAYDET */
@@ -335,7 +334,7 @@ namespace Eğitim_Takip
                                 kayit1.Parameters.AddWithValue("@zoom_link", f);
                                 kayit1.Parameters.AddWithValue("@saat", g);
                                 kayit1.ExecuteNonQuery();
-                                MessageBox.Show("Yeni eğitim başarıyla eklendi!", "Access Veritabanı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show("Yeni eğitim başarıyla eklendi!", "SQL & Access Veritabanı", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 kayit1.Dispose();
                                 baglanti1.Close();
                                 /*VERİTABANINA KAYDET*/
@@ -423,7 +422,6 @@ namespace Eğitim_Takip
                                 kayit.Parameters.AddWithValue("@saat", g);
                                 kayit.Parameters.AddWithValue("@katildi_mi", h);
                                 kayit.ExecuteNonQuery();
-                                MessageBox.Show("Yeni eğitim başarıyla eklendi!", "Eğitim Ekle", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 kayit.Dispose();
                                 baglanti.Close();
                                 /*SQL'A KAYDET */
@@ -440,7 +438,7 @@ namespace Eğitim_Takip
                                 kayit1.Parameters.AddWithValue("@zoom_link", f);
                                 kayit1.Parameters.AddWithValue("@saat", g);
                                 kayit1.ExecuteNonQuery();
-                                MessageBox.Show("Yeni eğitim başarıyla eklendi!", "Access Veritabanı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show("Yeni eğitim başarıyla eklendi!", "SQL & Access Veritabanı", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 kayit1.Dispose();
                                 baglanti1.Close();
                                 /*VERİTABANINA KAYDET*/
@@ -528,7 +526,6 @@ namespace Eğitim_Takip
                                 kayit.Parameters.AddWithValue("@saat", g);
                                 kayit.Parameters.AddWithValue("@katildi_mi", h);
                                 kayit.ExecuteNonQuery();
-                                MessageBox.Show("Yeni eğitim başarıyla eklendi!", "Eğitim Ekle", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 kayit.Dispose();
                                 baglanti.Close();
                                 /*SQL'A KAYDET */
@@ -545,7 +542,7 @@ namespace Eğitim_Takip
                                 kayit1.Parameters.AddWithValue("@zoom_link", f);
                                 kayit1.Parameters.AddWithValue("@saat", g);
                                 kayit1.ExecuteNonQuery();
-                                MessageBox.Show("Yeni eğitim başarıyla eklendi!", "Access Veritabanı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show("Yeni eğitim başarıyla eklendi!", "SQL & Access Veritabanı", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 kayit1.Dispose();
                                 baglanti1.Close();
                                 /*VERİTABANINA KAYDET*/
@@ -633,7 +630,6 @@ namespace Eğitim_Takip
                                 kayit.Parameters.AddWithValue("@saat", g);
                                 kayit.Parameters.AddWithValue("@katildi_mi", h);
                                 kayit.ExecuteNonQuery();
-                                MessageBox.Show("Yeni eğitim başarıyla eklendi!", "Eğitim Ekle", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 kayit.Dispose();
                                 baglanti.Close();
                                 /*SQL'A KAYDET */
@@ -650,7 +646,7 @@ namespace Eğitim_Takip
                                 kayit1.Parameters.AddWithValue("@zoom_link", f);
                                 kayit1.Parameters.AddWithValue("@saat", g);
                                 kayit1.ExecuteNonQuery();
-                                MessageBox.Show("Yeni eğitim başarıyla eklendi!", "Access Veritabanı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show("Yeni eğitim başarıyla eklendi!", "SQL & Access Veritabanı", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 kayit1.Dispose();
                                 baglanti1.Close();
                                 /*VERİTABANINA KAYDET*/

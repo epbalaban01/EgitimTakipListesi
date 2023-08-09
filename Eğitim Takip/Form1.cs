@@ -20,18 +20,10 @@ namespace Eğitim_Takip
 {
     public partial class Form1 : Form
     {
-        //string server2 = string.Format("Data Source={0};Initial Catalog={1};User ID={2};Password{3};", svsettings.Default.server
-        //    , svsettings.Default.database, svsettings.Default.username, svsettings.Default.password);
 
-
-        SqlConnection baglanti = new SqlConnection(string.Format("Server={0};Database={1};Uid={2};Pwd={3};MultipleActiveResultSets=True;Integrated Security=True", svsettings.Default.server
-            , svsettings.Default.database, svsettings.Default.username, svsettings.Default.password));
-        //SqlConnection baglanti = new SqlConnection("Server=" + svsettings.Default.server + ";Database=" + svsettings.Default.database + ";Uid=" + svsettings.Default.username + ";Pwd=" + svsettings.Default.password + ";");
-
-
-       
-        // SqlConnection baglanti = new SqlConnection("Data Source=IT-EYUP-LP\\SQLEXPRESS;Initial Catalog=veritabani;MultipleActiveResultSets=True;Integrated Security=True");
+        SqlConnection baglanti = new SqlConnection(string.Format("Server={0};Database={1};Uid={2};Pwd={3};MultipleActiveResultSets=True;Integrated Security=True", svsettings.Default.server, svsettings.Default.database, svsettings.Default.username, svsettings.Default.password));
         OleDbConnection baglanti1 = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=veritabani.mdb");
+        SqlConnection baglanti2 = new SqlConnection(string.Format("Server={0};Database={1};Uid={2};Pwd={3};MultipleActiveResultSets=True;Integrated Security=True", svsettings.Default.server, svsettings.Default.database, svsettings.Default.username, svsettings.Default.password));
 
         SqlDataAdapter adapter = new SqlDataAdapter();
 
@@ -41,37 +33,27 @@ namespace Eğitim_Takip
         SqlDataReader okuyucu;
 
         SqlCommand komut = new SqlCommand();
-
-        //private SqlConnection baglantiYap()
-        //{
-        //    SqlConnection baglanti = new SqlConnection("Server=" + svsettings.Default.server + ";Database=" + svsettings.Default.database + ";Uid=" + svsettings.Default.username + ";Pwd=" + svsettings.Default.database + ";");
-        //    if (baglanti.State == ConnectionState.Closed)
-        //    {
-        //        baglanti.Open();
-        //    }
-        //    return baglanti;
-        //}
-
-
-
+        PrivateFontCollection privateFontCollection = new PrivateFontCollection();
 
         public Form1()
         {
             InitializeComponent();
 
-
+            // Font dosyasını yükle
+            privateFontCollection.AddFontFile(Application.StartupPath + @"\Font\gilroy.otf");
 
         }
 
-        
+
         public void Form1_Load(object sender, EventArgs e)
         {
-            
-            //PrivateFontCollection pfc = new PrivateFontCollection();
-            //pfc.AddFontFile(Application.StartupPath + @"\Font\gilroy.otf");
-            //label15.Font = new Font(pfc.Families[0], 24, FontStyle.Italic);
-            //lblsaat.Font = new Font(pfc.Families[0], 22, FontStyle.Regular);
-            //lbltarih.Font = new Font(pfc.Families[0], 12, FontStyle.Regular);
+            label15.Font = new Font(privateFontCollection.Families[0], 24, FontStyle.Italic);
+            lblsaat.Font = new Font(privateFontCollection.Families[0], 22, FontStyle.Regular);
+            lbltarih.Font = new Font(privateFontCollection.Families[0], 12, FontStyle.Regular);
+
+            //PrivateFontCollection fontCollection = new PrivateFontCollection();
+            //fontCollection.AddFontFile(Application.StartupPath + @"\Font\Gilroy ExtraBold.otf");
+            //label15.Font = new Font(fontCollection.Families[0], 24, FontStyle.Italic);
 
 
             timer3.Start();
@@ -93,27 +75,12 @@ namespace Eğitim_Takip
             //}
 
         }
-
-      
-
-
-        private void Form1_Shown(object sender, EventArgs e)
-        {
-            
-        }
-
-
-
-
-
+   
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
         }
-
-
-       
-
+    
 
         #region Güncelle
 
@@ -126,6 +93,7 @@ namespace Eğitim_Takip
             SqlDataAdapter adtr = new SqlDataAdapter("select *from bos", baglanti);
             adtr.Fill(tablo);
             dataGridView1.DataSource = tablo;
+
             //DataGridViewButtonColumn dgvBtn = new DataGridViewButtonColumn();  /*** NORMAL BUTON EKLEME ***/
             //dgvBtn.HeaderText = "Zoom Link";   //Kolon Başlığı
             //dgvBtn.Text = "Sayfaya Git";      // Butonun Text
@@ -136,6 +104,7 @@ namespace Eğitim_Takip
             //dataGridView1.Columns.Add(dgvBtn);         // DataGridView e ekleme
             add();
             adtr.Dispose();
+
             renklendir();
 
             baglanti.Close();
@@ -159,7 +128,7 @@ namespace Eğitim_Takip
             adtr.Dispose();
             renklendir();
 
-
+           
 
 
             //BİLDİRİM HATIRLATMA
@@ -194,6 +163,7 @@ namespace Eğitim_Takip
             //
             adtr4.Dispose();
             oku1.Close();
+
 
 
             baglanti.Close();
@@ -241,7 +211,7 @@ namespace Eğitim_Takip
             oku1 = adtr4.ExecuteReader();
             if (oku1.Read())
             {
-                toolStripStatusLabel1.Text = "Toplam " + oku1[0].ToString() + " kayıt var.";
+                toolStripStatusLabel2.Text = "Toplam " + oku1[0].ToString() + " kayıt var.";
             }
             //
 
@@ -284,7 +254,7 @@ namespace Eğitim_Takip
             oku1 = adtr4.ExecuteReader();
             if (oku1.Read())
             {
-                toolStripStatusLabel1.Text = "Toplam " + oku1[0].ToString() + " kayıt var.";
+                toolStripStatusLabel2.Text = "Toplam " + oku1[0].ToString() + " kayıt var.";
             }
 
             baglanti.Close();
@@ -329,7 +299,7 @@ namespace Eğitim_Takip
             oku1 = adtr4.ExecuteReader();
             if (oku1.Read())
             {
-                toolStripStatusLabel1.Text = "Toplam " + oku1[0].ToString() + " kayıt var.";
+                toolStripStatusLabel2.Text = "Toplam " + oku1[0].ToString() + " kayıt var.";
             }
 
             baglanti.Close();
@@ -374,7 +344,7 @@ namespace Eğitim_Takip
             oku1 = adtr4.ExecuteReader();
             if (oku1.Read())
             {
-                toolStripStatusLabel1.Text = "Toplam " + oku1[0].ToString() + " kayıt var.";
+                toolStripStatusLabel2.Text = "Toplam " + oku1[0].ToString() + " kayıt var.";
             }
 
             baglanti.Close();
@@ -400,7 +370,7 @@ namespace Eğitim_Takip
             oku1 = adtr4.ExecuteReader();
             if (oku1.Read())
             {
-                toolStripStatusLabel1.Text = "Toplam " + oku1[0].ToString() + " kayıt var.";
+                toolStripStatusLabel2.Text = "Toplam " + oku1[0].ToString() + " kayıt var.";
             }
 
             baglanti.Close();
@@ -469,7 +439,7 @@ namespace Eğitim_Takip
                    
 
                     //SQL BAĞLANTISI
-                   baglanti.Open();
+                    baglanti.Open();
                     SqlCommand komut2 = new SqlCommand("DELETE FROM gaib WHERE egitim_adi=@egitim_adi", baglanti);
                     komut2.Parameters.AddWithValue("@egitim_adi", dataGridView1.CurrentRow.Cells[2].Value);
                     komut2.ExecuteNonQuery();
@@ -494,7 +464,7 @@ namespace Eğitim_Takip
 
 
                     //SQL BAĞLANTISI
-                   baglanti.Open();
+                    baglanti.Open();
                     SqlCommand komut2 = new SqlCommand("DELETE FROM immib WHERE egitim_adi=@egitim_adi", baglanti);
                     komut2.Parameters.AddWithValue("@egitim_adi", dataGridView1.CurrentRow.Cells[2].Value);
                     komut2.ExecuteNonQuery();
@@ -517,7 +487,7 @@ namespace Eğitim_Takip
                 {
 
                     //SQL BAĞLANTISI
-                   baglanti.Open();
+                    baglanti.Open();
                     SqlCommand komut2 = new SqlCommand("DELETE FROM iso WHERE egitim_adi=@egitim_adi", baglanti);
                     komut2.Parameters.AddWithValue("@egitim_adi", dataGridView1.CurrentRow.Cells[2].Value);
                     komut2.ExecuteNonQuery();
@@ -540,7 +510,7 @@ namespace Eğitim_Takip
                 if (MessageBox.Show("Seçili Ögeyi Silmek İstiyor Musunuz ?", "Dikkat", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     //SQL BAĞLANTISI
-                   baglanti.Open();
+                    baglanti.Open();
                     SqlCommand komut2 = new SqlCommand("DELETE FROM akbank WHERE egitim_adi=@egitim_adi", baglanti);
                     komut2.Parameters.AddWithValue("@egitim_adi", dataGridView1.CurrentRow.Cells[2].Value);
                     komut2.ExecuteNonQuery();
@@ -562,7 +532,7 @@ namespace Eğitim_Takip
                 if (MessageBox.Show("Seçili Ögeyi Silmek İstiyor Musunuz ?", "Dikkat", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     //SQL BAĞLANTISI
-                   baglanti.Open();
+                    baglanti.Open();
                     SqlCommand komut2 = new SqlCommand("DELETE FROM microfon WHERE egitim_adi=@egitim_adi", baglanti);
                     komut2.Parameters.AddWithValue("@egitim_adi", dataGridView1.CurrentRow.Cells[2].Value);
                     komut2.ExecuteNonQuery();
@@ -584,7 +554,7 @@ namespace Eğitim_Takip
                 if (MessageBox.Show("Seçili Ögeyi Silmek İstiyor Musunuz ?", "Dikkat", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     //SQL BAĞLANTISI
-                   baglanti.Open();
+                    baglanti.Open();
                     SqlCommand komut2 = new SqlCommand("DELETE FROM solidworks WHERE egitim_adi=@egitim_adi", baglanti);
                     komut2.Parameters.AddWithValue("@egitim_adi", dataGridView1.CurrentRow.Cells[2].Value);
                     komut2.ExecuteNonQuery();
@@ -930,22 +900,9 @@ namespace Eğitim_Takip
 
         }
 
-        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-            //DataTable _dt = (DataTable)dataGridView1.DataSource;
+        
 
-            //foreach (DataGridViewRow _row in _dt.Rows)
-            //{
-            //    if (Convert.ToBoolean(_row.Cells[8].Value) == true)
-            //    {
-            //        MessageBox.Show("Checked");
-            //    }
-            //}
-
-
-        }
-
-
+        #region Arşivlere Taşı
         private void button1_Click(object sender, EventArgs e)
         {
 
@@ -962,7 +919,7 @@ namespace Eğitim_Takip
                                 /* SQL SERVER KAYDETME */
 
                                 //SQL BAĞLANTISI
-                               baglanti.Open();
+                                baglanti.Open();
                                 SqlCommand komut2 = new SqlCommand("DELETE FROM gaib WHERE egitim_adi=@egitim_adi", baglanti);
                                 komut2.Parameters.AddWithValue("@egitim_adi", dataGridView1.CurrentRow.Cells[2].Value);
                                 komut2.ExecuteNonQuery();
@@ -970,8 +927,7 @@ namespace Eğitim_Takip
                                 /* Log Başlangıç */
                                 try
                                 {
-                                    SqlConnection baglanti2 = new SqlConnection("Data Source=IT-EYUP-LP\\SQLEXPRESS;Initial Catalog=veritabani;MultipleActiveResultSets=True;Integrated Security=True");
-                                    
+                                 
                                     baglanti2.Open();
                                     SqlCommand logkomutu = new SqlCommand("insert into gaib_arsiv ([egitim_adi], [egitim_zamani],[zoom_id], [zoom_sifre],[zoom_link],[saat],[katildi_mi], [tarih]) values (@egitim_adi, @egitim_zamani, @zoom_id, @zoom_sifre, @zoom_link, @saat, @katildi_mi, @tarih)", baglanti2);
                                     logkomutu.Parameters.AddWithValue("@egitim_adi", lblegitimadi.Text);
@@ -994,8 +950,7 @@ namespace Eğitim_Takip
                                 /* Log Bitiş */
 
                                 baglanti.Close();
-                                MessageBox.Show("SQL arşivlere taşındı", "Balaban Eğitim Takip Otomasyonu", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                        
                                 /* SQL SERVER KAYDETME */
 
                                 /*////////////////////////////////////////////////////////////////////////////////////////*/
@@ -1033,8 +988,9 @@ namespace Eğitim_Takip
                                 /* Log Bitiş */
 
                                 baglanti1.Close();
-                                MessageBox.Show("Access veritabanı arşivlere taşındı", "Balaban Eğitim Takip Otomasyonu", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 /* ACCESS VERİTABANI KAYDETME */
+
+                                MessageBox.Show("Arşivlere taşındı", "Balaban Eğitim Takip Otomasyonu", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                                 tablo.Clear();
                                 guncelle();
@@ -1055,9 +1011,10 @@ namespace Eğitim_Takip
                         {
                             try
                             {
+                                /* SQL SERVER KAYDETME */
 
                                 //SQL BAĞLANTISI
-                               baglanti.Open();
+                                baglanti.Open();
                                 SqlCommand komut2 = new SqlCommand("DELETE FROM immib WHERE egitim_adi=@egitim_adi", baglanti);
                                 komut2.Parameters.AddWithValue("@egitim_adi", dataGridView1.CurrentRow.Cells[2].Value);
                                 komut2.ExecuteNonQuery();
@@ -1065,9 +1022,9 @@ namespace Eğitim_Takip
                                 /* Log Başlangıç */
                                 try
                                 {
-                                    OleDbConnection baglanti1 = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=veritabani.mdb");
-                                    baglanti1.Open();
-                                    SqlCommand logkomutu = new SqlCommand("insert into immib_arsiv ([egitim_adi], [egitim_zamani],[zoom_id], [zoom_sifre],[zoom_link],[saat],[katildi_mi], [tarih]) values (@egitim_adi, @egitim_zamani, @zoom_id, @zoom_sifre, @zoom_link, @saat, @katildi_mi, @tarih)", baglanti);
+
+                                    baglanti2.Open();
+                                    SqlCommand logkomutu = new SqlCommand("insert into immib_arsiv ([egitim_adi], [egitim_zamani],[zoom_id], [zoom_sifre],[zoom_link],[saat],[katildi_mi], [tarih]) values (@egitim_adi, @egitim_zamani, @zoom_id, @zoom_sifre, @zoom_link, @saat, @katildi_mi, @tarih)", baglanti2);
                                     logkomutu.Parameters.AddWithValue("@egitim_adi", lblegitimadi.Text);
                                     logkomutu.Parameters.AddWithValue("@egitim_zamani", lblegitimzamani.Text);
                                     logkomutu.Parameters.AddWithValue("@zoom_id", lblzoomid.Text);
@@ -1076,9 +1033,10 @@ namespace Eğitim_Takip
                                     logkomutu.Parameters.AddWithValue("@saat", lblegitimsaati.Text);
                                     logkomutu.Parameters.AddWithValue("@katildi_mi", label39.Text);
                                     logkomutu.Parameters.AddWithValue("@tarih", lbltarih.Text);
+
                                     logkomutu.ExecuteNonQuery();
                                     logkomutu.Dispose();
-                                    baglanti1.Close();
+                                    baglanti2.Close();
                                 }
                                 catch (InvalidCastException ex)
                                 {
@@ -1088,7 +1046,47 @@ namespace Eğitim_Takip
 
                                 baglanti.Close();
 
+                                /* SQL SERVER KAYDETME */
+
+                                /*////////////////////////////////////////////////////////////////////////////////////////*/
+
+
+                                /* ACCESS VERİTABANI KAYDETME */
+                                baglanti1.Open();
+                                OleDbCommand komut3 = new OleDbCommand("DELETE FROM immib WHERE egitim_adi=@egitim_adi", baglanti1);
+                                komut3.Parameters.AddWithValue("@egitim_adi", dataGridView1.CurrentRow.Cells[2].Value);
+                                komut3.ExecuteNonQuery();
+
+                                /* Log Başlangıç */
+                                try
+                                {
+                                    OleDbConnection baglanti2 = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=veritabani.mdb");
+                                    baglanti2.Open();
+                                    OleDbCommand logkomutu = new OleDbCommand("insert into immib_arsiv ([egitim_adi], [egitim_zamani],[zoom_id], [zoom_sifre],[zoom_link],[saat],[katildi_mi], [tarih]) values (@egitim_adi, @egitim_zamani, @zoom_id, @zoom_sifre, @zoom_link, @saat, @katildi_mi, @tarih)", baglanti2);
+                                    logkomutu.Parameters.AddWithValue("@egitim_adi", lblegitimadi.Text);
+                                    logkomutu.Parameters.AddWithValue("@egitim_zamani", lblegitimzamani.Text);
+                                    logkomutu.Parameters.AddWithValue("@zoom_id", lblzoomid.Text);
+                                    logkomutu.Parameters.AddWithValue("@zoom_sifre", lblzoomsifre.Text);
+                                    logkomutu.Parameters.AddWithValue("@zoom_link", lblzoomlink.Text);
+                                    logkomutu.Parameters.AddWithValue("@saat", lblegitimsaati.Text);
+                                    logkomutu.Parameters.AddWithValue("@katildi_mi", label39.Text);
+                                    logkomutu.Parameters.AddWithValue("@tarih", lbltarih.Text);
+
+                                    logkomutu.ExecuteNonQuery();
+                                    logkomutu.Dispose();
+                                    baglanti2.Close();
+                                }
+                                catch (InvalidCastException ex)
+                                {
+                                    MessageBox.Show(ex.Message, "ERROR12", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                                /* Log Bitiş */
+
+                                baglanti1.Close();
+                                /* ACCESS VERİTABANI KAYDETME */
+
                                 MessageBox.Show("Arşivlere taşındı", "Balaban Eğitim Takip Otomasyonu", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                                 tablo.Clear();
                                 guncelle1();
                             }
@@ -1108,8 +1106,10 @@ namespace Eğitim_Takip
                             try
                             {
 
+                                /* SQL SERVER KAYDETME */
+
                                 //SQL BAĞLANTISI
-                               baglanti.Open();
+                                baglanti.Open();
                                 SqlCommand komut2 = new SqlCommand("DELETE FROM iso WHERE egitim_adi=@egitim_adi", baglanti);
                                 komut2.Parameters.AddWithValue("@egitim_adi", dataGridView1.CurrentRow.Cells[2].Value);
                                 komut2.ExecuteNonQuery();
@@ -1117,9 +1117,9 @@ namespace Eğitim_Takip
                                 /* Log Başlangıç */
                                 try
                                 {
-                                    OleDbConnection baglanti1 = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=veritabani.mdb");
-                                    baglanti1.Open();
-                                    SqlCommand logkomutu = new SqlCommand("insert into iso_arsiv ([egitim_adi], [egitim_zamani],[zoom_id], [zoom_sifre],[zoom_link],[saat],[katildi_mi], [tarih]) values (@egitim_adi, @egitim_zamani, @zoom_id, @zoom_sifre, @zoom_link, @saat, @katildi_mi, @tarih)", baglanti);
+
+                                    baglanti2.Open();
+                                    SqlCommand logkomutu = new SqlCommand("insert into iso_arsiv ([egitim_adi], [egitim_zamani],[zoom_id], [zoom_sifre],[zoom_link],[saat],[katildi_mi], [tarih]) values (@egitim_adi, @egitim_zamani, @zoom_id, @zoom_sifre, @zoom_link, @saat, @katildi_mi, @tarih)", baglanti2);
                                     logkomutu.Parameters.AddWithValue("@egitim_adi", lblegitimadi.Text);
                                     logkomutu.Parameters.AddWithValue("@egitim_zamani", lblegitimzamani.Text);
                                     logkomutu.Parameters.AddWithValue("@zoom_id", lblzoomid.Text);
@@ -1128,9 +1128,10 @@ namespace Eğitim_Takip
                                     logkomutu.Parameters.AddWithValue("@saat", lblegitimsaati.Text);
                                     logkomutu.Parameters.AddWithValue("@katildi_mi", label39.Text);
                                     logkomutu.Parameters.AddWithValue("@tarih", lbltarih.Text);
+
                                     logkomutu.ExecuteNonQuery();
                                     logkomutu.Dispose();
-                                    baglanti1.Close();
+                                    baglanti2.Close();
                                 }
                                 catch (InvalidCastException ex)
                                 {
@@ -1140,7 +1141,47 @@ namespace Eğitim_Takip
 
                                 baglanti.Close();
 
+                                /* SQL SERVER KAYDETME */
+
+                                /*////////////////////////////////////////////////////////////////////////////////////////*/
+
+
+                                /* ACCESS VERİTABANI KAYDETME */
+                                baglanti1.Open();
+                                OleDbCommand komut3 = new OleDbCommand("DELETE FROM iso WHERE egitim_adi=@egitim_adi", baglanti1);
+                                komut3.Parameters.AddWithValue("@egitim_adi", dataGridView1.CurrentRow.Cells[2].Value);
+                                komut3.ExecuteNonQuery();
+
+                                /* Log Başlangıç */
+                                try
+                                {
+                                    OleDbConnection baglanti2 = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=veritabani.mdb");
+                                    baglanti2.Open();
+                                    OleDbCommand logkomutu = new OleDbCommand("insert into iso_arsiv ([egitim_adi], [egitim_zamani],[zoom_id], [zoom_sifre],[zoom_link],[saat],[katildi_mi], [tarih]) values (@egitim_adi, @egitim_zamani, @zoom_id, @zoom_sifre, @zoom_link, @saat, @katildi_mi, @tarih)", baglanti2);
+                                    logkomutu.Parameters.AddWithValue("@egitim_adi", lblegitimadi.Text);
+                                    logkomutu.Parameters.AddWithValue("@egitim_zamani", lblegitimzamani.Text);
+                                    logkomutu.Parameters.AddWithValue("@zoom_id", lblzoomid.Text);
+                                    logkomutu.Parameters.AddWithValue("@zoom_sifre", lblzoomsifre.Text);
+                                    logkomutu.Parameters.AddWithValue("@zoom_link", lblzoomlink.Text);
+                                    logkomutu.Parameters.AddWithValue("@saat", lblegitimsaati.Text);
+                                    logkomutu.Parameters.AddWithValue("@katildi_mi", label39.Text);
+                                    logkomutu.Parameters.AddWithValue("@tarih", lbltarih.Text);
+
+                                    logkomutu.ExecuteNonQuery();
+                                    logkomutu.Dispose();
+                                    baglanti2.Close();
+                                }
+                                catch (InvalidCastException ex)
+                                {
+                                    MessageBox.Show(ex.Message, "ERROR12", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                                /* Log Bitiş */
+
+                                baglanti1.Close();
+                                /* ACCESS VERİTABANI KAYDETME */
+
                                 MessageBox.Show("Arşivlere taşındı", "Balaban Eğitim Takip Otomasyonu", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                                 tablo.Clear();
                                 guncelle2();
                             }
@@ -1161,8 +1202,10 @@ namespace Eğitim_Takip
                             try
                             {
 
+                                /* SQL SERVER KAYDETME */
+
                                 //SQL BAĞLANTISI
-                               baglanti.Open();
+                                baglanti.Open();
                                 SqlCommand komut2 = new SqlCommand("DELETE FROM akbank WHERE egitim_adi=@egitim_adi", baglanti);
                                 komut2.Parameters.AddWithValue("@egitim_adi", dataGridView1.CurrentRow.Cells[2].Value);
                                 komut2.ExecuteNonQuery();
@@ -1170,9 +1213,9 @@ namespace Eğitim_Takip
                                 /* Log Başlangıç */
                                 try
                                 {
-                                    OleDbConnection baglanti1 = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=veritabani.mdb");
-                                    baglanti1.Open();
-                                    SqlCommand logkomutu = new SqlCommand("insert into akbank_arsiv ([egitim_adi], [egitim_zamani],[zoom_id], [zoom_sifre],[zoom_link],[saat],[katildi_mi], [tarih]) values (@egitim_adi, @egitim_zamani, @zoom_id, @zoom_sifre, @zoom_link, @saat, @katildi_mi, @tarih)", baglanti);
+
+                                    baglanti2.Open();
+                                    SqlCommand logkomutu = new SqlCommand("insert into akbank_arsiv ([egitim_adi], [egitim_zamani],[zoom_id], [zoom_sifre],[zoom_link],[saat],[katildi_mi], [tarih]) values (@egitim_adi, @egitim_zamani, @zoom_id, @zoom_sifre, @zoom_link, @saat, @katildi_mi, @tarih)", baglanti2);
                                     logkomutu.Parameters.AddWithValue("@egitim_adi", lblegitimadi.Text);
                                     logkomutu.Parameters.AddWithValue("@egitim_zamani", lblegitimzamani.Text);
                                     logkomutu.Parameters.AddWithValue("@zoom_id", lblzoomid.Text);
@@ -1181,9 +1224,10 @@ namespace Eğitim_Takip
                                     logkomutu.Parameters.AddWithValue("@saat", lblegitimsaati.Text);
                                     logkomutu.Parameters.AddWithValue("@katildi_mi", label39.Text);
                                     logkomutu.Parameters.AddWithValue("@tarih", lbltarih.Text);
+
                                     logkomutu.ExecuteNonQuery();
                                     logkomutu.Dispose();
-                                    baglanti1.Close();
+                                    baglanti2.Close();
                                 }
                                 catch (InvalidCastException ex)
                                 {
@@ -1193,7 +1237,47 @@ namespace Eğitim_Takip
 
                                 baglanti.Close();
 
+                                /* SQL SERVER KAYDETME */
+
+                                /*////////////////////////////////////////////////////////////////////////////////////////*/
+
+
+                                /* ACCESS VERİTABANI KAYDETME */
+                                baglanti1.Open();
+                                OleDbCommand komut3 = new OleDbCommand("DELETE FROM akbank WHERE egitim_adi=@egitim_adi", baglanti1);
+                                komut3.Parameters.AddWithValue("@egitim_adi", dataGridView1.CurrentRow.Cells[2].Value);
+                                komut3.ExecuteNonQuery();
+
+                                /* Log Başlangıç */
+                                try
+                                {
+                                    OleDbConnection baglanti2 = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=veritabani.mdb");
+                                    baglanti2.Open();
+                                    OleDbCommand logkomutu = new OleDbCommand("insert into akbank_arsiv ([egitim_adi], [egitim_zamani],[zoom_id], [zoom_sifre],[zoom_link],[saat],[katildi_mi], [tarih]) values (@egitim_adi, @egitim_zamani, @zoom_id, @zoom_sifre, @zoom_link, @saat, @katildi_mi, @tarih)", baglanti2);
+                                    logkomutu.Parameters.AddWithValue("@egitim_adi", lblegitimadi.Text);
+                                    logkomutu.Parameters.AddWithValue("@egitim_zamani", lblegitimzamani.Text);
+                                    logkomutu.Parameters.AddWithValue("@zoom_id", lblzoomid.Text);
+                                    logkomutu.Parameters.AddWithValue("@zoom_sifre", lblzoomsifre.Text);
+                                    logkomutu.Parameters.AddWithValue("@zoom_link", lblzoomlink.Text);
+                                    logkomutu.Parameters.AddWithValue("@saat", lblegitimsaati.Text);
+                                    logkomutu.Parameters.AddWithValue("@katildi_mi", label39.Text);
+                                    logkomutu.Parameters.AddWithValue("@tarih", lbltarih.Text);
+
+                                    logkomutu.ExecuteNonQuery();
+                                    logkomutu.Dispose();
+                                    baglanti2.Close();
+                                }
+                                catch (InvalidCastException ex)
+                                {
+                                    MessageBox.Show(ex.Message, "ERROR12", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                                /* Log Bitiş */
+
+                                baglanti1.Close();
+                                /* ACCESS VERİTABANI KAYDETME */
+
                                 MessageBox.Show("Arşivlere taşındı", "Balaban Eğitim Takip Otomasyonu", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                                 tablo.Clear();
                                 guncelle3();
                             }
@@ -1213,8 +1297,10 @@ namespace Eğitim_Takip
                             try
                             {
 
+                                /* SQL SERVER KAYDETME */
+
                                 //SQL BAĞLANTISI
-                               baglanti.Open();
+                                baglanti.Open();
                                 SqlCommand komut2 = new SqlCommand("DELETE FROM microfon WHERE egitim_adi=@egitim_adi", baglanti);
                                 komut2.Parameters.AddWithValue("@egitim_adi", dataGridView1.CurrentRow.Cells[2].Value);
                                 komut2.ExecuteNonQuery();
@@ -1222,9 +1308,9 @@ namespace Eğitim_Takip
                                 /* Log Başlangıç */
                                 try
                                 {
-                                    OleDbConnection baglanti1 = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=veritabani.mdb");
-                                    baglanti1.Open();
-                                    SqlCommand logkomutu = new SqlCommand("insert into microfon_arsiv ([egitim_adi], [egitim_zamani],[zoom_id], [zoom_sifre],[zoom_link],[saat],[katildi_mi], [tarih]) values (@egitim_adi, @egitim_zamani, @zoom_id, @zoom_sifre, @zoom_link, @saat, @katildi_mi, @tarih)", baglanti);
+
+                                    baglanti2.Open();
+                                    SqlCommand logkomutu = new SqlCommand("insert into microfon_arsiv ([egitim_adi], [egitim_zamani],[zoom_id], [zoom_sifre],[zoom_link],[saat],[katildi_mi], [tarih]) values (@egitim_adi, @egitim_zamani, @zoom_id, @zoom_sifre, @zoom_link, @saat, @katildi_mi, @tarih)", baglanti2);
                                     logkomutu.Parameters.AddWithValue("@egitim_adi", lblegitimadi.Text);
                                     logkomutu.Parameters.AddWithValue("@egitim_zamani", lblegitimzamani.Text);
                                     logkomutu.Parameters.AddWithValue("@zoom_id", lblzoomid.Text);
@@ -1233,9 +1319,10 @@ namespace Eğitim_Takip
                                     logkomutu.Parameters.AddWithValue("@saat", lblegitimsaati.Text);
                                     logkomutu.Parameters.AddWithValue("@katildi_mi", label39.Text);
                                     logkomutu.Parameters.AddWithValue("@tarih", lbltarih.Text);
+
                                     logkomutu.ExecuteNonQuery();
                                     logkomutu.Dispose();
-                                    baglanti1.Close();
+                                    baglanti2.Close();
                                 }
                                 catch (InvalidCastException ex)
                                 {
@@ -1245,7 +1332,47 @@ namespace Eğitim_Takip
 
                                 baglanti.Close();
 
+                                /* SQL SERVER KAYDETME */
+
+                                /*////////////////////////////////////////////////////////////////////////////////////////*/
+
+
+                                /* ACCESS VERİTABANI KAYDETME */
+                                baglanti1.Open();
+                                OleDbCommand komut3 = new OleDbCommand("DELETE FROM microfon WHERE egitim_adi=@egitim_adi", baglanti1);
+                                komut3.Parameters.AddWithValue("@egitim_adi", dataGridView1.CurrentRow.Cells[2].Value);
+                                komut3.ExecuteNonQuery();
+
+                                /* Log Başlangıç */
+                                try
+                                {
+                                    OleDbConnection baglanti2 = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=veritabani.mdb");
+                                    baglanti2.Open();
+                                    OleDbCommand logkomutu = new OleDbCommand("insert into microfon_arsiv ([egitim_adi], [egitim_zamani],[zoom_id], [zoom_sifre],[zoom_link],[saat],[katildi_mi], [tarih]) values (@egitim_adi, @egitim_zamani, @zoom_id, @zoom_sifre, @zoom_link, @saat, @katildi_mi, @tarih)", baglanti2);
+                                    logkomutu.Parameters.AddWithValue("@egitim_adi", lblegitimadi.Text);
+                                    logkomutu.Parameters.AddWithValue("@egitim_zamani", lblegitimzamani.Text);
+                                    logkomutu.Parameters.AddWithValue("@zoom_id", lblzoomid.Text);
+                                    logkomutu.Parameters.AddWithValue("@zoom_sifre", lblzoomsifre.Text);
+                                    logkomutu.Parameters.AddWithValue("@zoom_link", lblzoomlink.Text);
+                                    logkomutu.Parameters.AddWithValue("@saat", lblegitimsaati.Text);
+                                    logkomutu.Parameters.AddWithValue("@katildi_mi", label39.Text);
+                                    logkomutu.Parameters.AddWithValue("@tarih", lbltarih.Text);
+
+                                    logkomutu.ExecuteNonQuery();
+                                    logkomutu.Dispose();
+                                    baglanti2.Close();
+                                }
+                                catch (InvalidCastException ex)
+                                {
+                                    MessageBox.Show(ex.Message, "ERROR12", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                                /* Log Bitiş */
+
+                                baglanti1.Close();
+                                /* ACCESS VERİTABANI KAYDETME */
+
                                 MessageBox.Show("Arşivlere taşındı", "Balaban Eğitim Takip Otomasyonu", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                                 tablo.Clear();
                                 guncelle3();
                             }
@@ -1265,8 +1392,10 @@ namespace Eğitim_Takip
                             try
                             {
 
+                                /* SQL SERVER KAYDETME */
+
                                 //SQL BAĞLANTISI
-                               baglanti.Open();
+                                baglanti.Open();
                                 SqlCommand komut2 = new SqlCommand("DELETE FROM solidworks WHERE egitim_adi=@egitim_adi", baglanti);
                                 komut2.Parameters.AddWithValue("@egitim_adi", dataGridView1.CurrentRow.Cells[2].Value);
                                 komut2.ExecuteNonQuery();
@@ -1274,9 +1403,9 @@ namespace Eğitim_Takip
                                 /* Log Başlangıç */
                                 try
                                 {
-                                    OleDbConnection baglanti1 = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=veritabani.mdb");
-                                    baglanti1.Open();
-                                    SqlCommand logkomutu = new SqlCommand("insert into solidworks_arsiv ([egitim_adi], [egitim_zamani],[zoom_id], [zoom_sifre],[zoom_link],[saat],[katildi_mi], [tarih]) values (@egitim_adi, @egitim_zamani, @zoom_id, @zoom_sifre, @zoom_link, @saat, @katildi_mi, @tarih)", baglanti);
+
+                                    baglanti2.Open();
+                                    SqlCommand logkomutu = new SqlCommand("insert into solidworks_arsiv ([egitim_adi], [egitim_zamani],[zoom_id], [zoom_sifre],[zoom_link],[saat],[katildi_mi], [tarih]) values (@egitim_adi, @egitim_zamani, @zoom_id, @zoom_sifre, @zoom_link, @saat, @katildi_mi, @tarih)", baglanti2);
                                     logkomutu.Parameters.AddWithValue("@egitim_adi", lblegitimadi.Text);
                                     logkomutu.Parameters.AddWithValue("@egitim_zamani", lblegitimzamani.Text);
                                     logkomutu.Parameters.AddWithValue("@zoom_id", lblzoomid.Text);
@@ -1285,9 +1414,10 @@ namespace Eğitim_Takip
                                     logkomutu.Parameters.AddWithValue("@saat", lblegitimsaati.Text);
                                     logkomutu.Parameters.AddWithValue("@katildi_mi", label39.Text);
                                     logkomutu.Parameters.AddWithValue("@tarih", lbltarih.Text);
+
                                     logkomutu.ExecuteNonQuery();
                                     logkomutu.Dispose();
-                                    baglanti1.Close();
+                                    baglanti2.Close();
                                 }
                                 catch (InvalidCastException ex)
                                 {
@@ -1297,7 +1427,47 @@ namespace Eğitim_Takip
 
                                 baglanti.Close();
 
+                                /* SQL SERVER KAYDETME */
+
+                                /*////////////////////////////////////////////////////////////////////////////////////////*/
+
+
+                                /* ACCESS VERİTABANI KAYDETME */
+                                baglanti1.Open();
+                                OleDbCommand komut3 = new OleDbCommand("DELETE FROM solidworks WHERE egitim_adi=@egitim_adi", baglanti1);
+                                komut3.Parameters.AddWithValue("@egitim_adi", dataGridView1.CurrentRow.Cells[2].Value);
+                                komut3.ExecuteNonQuery();
+
+                                /* Log Başlangıç */
+                                try
+                                {
+                                    OleDbConnection baglanti2 = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=veritabani.mdb");
+                                    baglanti2.Open();
+                                    OleDbCommand logkomutu = new OleDbCommand("insert into solidworks_arsiv ([egitim_adi], [egitim_zamani],[zoom_id], [zoom_sifre],[zoom_link],[saat],[katildi_mi], [tarih]) values (@egitim_adi, @egitim_zamani, @zoom_id, @zoom_sifre, @zoom_link, @saat, @katildi_mi, @tarih)", baglanti2);
+                                    logkomutu.Parameters.AddWithValue("@egitim_adi", lblegitimadi.Text);
+                                    logkomutu.Parameters.AddWithValue("@egitim_zamani", lblegitimzamani.Text);
+                                    logkomutu.Parameters.AddWithValue("@zoom_id", lblzoomid.Text);
+                                    logkomutu.Parameters.AddWithValue("@zoom_sifre", lblzoomsifre.Text);
+                                    logkomutu.Parameters.AddWithValue("@zoom_link", lblzoomlink.Text);
+                                    logkomutu.Parameters.AddWithValue("@saat", lblegitimsaati.Text);
+                                    logkomutu.Parameters.AddWithValue("@katildi_mi", label39.Text);
+                                    logkomutu.Parameters.AddWithValue("@tarih", lbltarih.Text);
+
+                                    logkomutu.ExecuteNonQuery();
+                                    logkomutu.Dispose();
+                                    baglanti2.Close();
+                                }
+                                catch (InvalidCastException ex)
+                                {
+                                    MessageBox.Show(ex.Message, "ERROR12", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                                /* Log Bitiş */
+
+                                baglanti1.Close();
+                                /* ACCESS VERİTABANI KAYDETME */
+
                                 MessageBox.Show("Arşivlere taşındı", "Balaban Eğitim Takip Otomasyonu", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                                 tablo.Clear();
                                 guncelle3();
                             }
@@ -1318,6 +1488,8 @@ namespace Eğitim_Takip
                 MessageBox.Show(hata.Message);
             }
         }
+        #endregion
+
 
         private void timer2_Tick(object sender, EventArgs e)
         {
@@ -1334,21 +1506,74 @@ namespace Eğitim_Takip
             notification2();
         }
 
+        private void yenileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (comboBox1.Text == "GAİB")
+            {
+                pictureBox1.Image = Properties.Resources.gaiblogo;
+                tablo.Clear();
+                guncelle();
+            }
+            else if (comboBox1.Text == "İMMİB Akademi")
+            {
+                pictureBox1.Image = Properties.Resources.immib;
+                tablo.Clear();
+                guncelle1();
+            }
+            else if (comboBox1.Text == "ISO Akademi")
+            {
+                pictureBox1.Image = Properties.Resources.ISO_logo_1280_146;
+                tablo.Clear();
+                guncelle2();
+            }
+
+            else if (comboBox1.Text == "AKBANK Akademi")
+            {
+                pictureBox1.Image = Properties.Resources.akbank;
+                tablo.Clear();
+                guncelle3();
+            }
+            else if (comboBox1.Text == "Microfon")
+            {
+                pictureBox1.Image = Properties.Resources.microfon;
+                tablo.Clear();
+                guncelle4();
+            }
+            else if (comboBox1.Text == "Solidworks")
+            {
+                pictureBox1.Image = Properties.Resources.solidworks;
+                tablo.Clear();
+                guncelle5();
+            }
+            else
+            {
+                MessageBox.Show("Seçim Yap");
+            }
+
+
+
+
+        }
+
 
         #region KALAN VAKİT HESAPLAMA
 
         string vakit, kalanvakit, kalanvakit1, kalanvakit2;
 
-        private void yenileToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            tablo.Clear();
-       
-        }
-
         string immibvakit, immibkalanvakit, immibkalanvakit1, immibkalanvakit2;
         string isovakit, isokalanvakit, isokalanvakit1, isokalanvakit2;
 
-    
+        private void button3_Click(object sender, EventArgs e)
+        {
+            VeritabaniYedekleMail yeni = new VeritabaniYedekleMail();
+            yeni.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            IcsOlusturma yeni = new IcsOlusturma();
+            yeni.Show();
+        }
 
         string microfonvakit, microfonkalanvakit, microfonkalanvakit1, microfonkalanvakit2;
         string akbankvakit, akbankkalanvakit, akbankkalanvakit1, akbankkalanvakit2;
@@ -1369,8 +1594,8 @@ namespace Eğitim_Takip
 
                     vakit = gaib_kalanvakit.Text;
                     kalanvakit = "60";
-                    kalanvakit1 = "30";
-                    kalanvakit2 = "15";
+                    kalanvakit1 = "10";
+                    kalanvakit2 = "5";
                 }
                 if (immib_egitimtarihi.Text == DateTime.Now.ToShortDateString()) // İMMİB AKADEMİ KALAN SAAT
                 {

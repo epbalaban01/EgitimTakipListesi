@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>sdf.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -83,6 +86,18 @@
     <Compile Include="Hakkinda.Designer.cs">
       <DependentUpon>Hakkinda.cs</DependentUpon>
     </Compile>
+    <Compile Include="IcsOlusturma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IcsOlusturma.Designer.cs">
+      <DependentUpon>IcsOlusturma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Loading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Loading.Designer.cs">
+      <DependentUpon>Loading.cs</DependentUpon>
+    </Compile>
     <Compile Include="localAdminSettings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -91,6 +106,11 @@
     <Compile Include="MessageBoxManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings1.settings</DependentUpon>
+    </Compile>
     <Compile Include="SplashScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +133,12 @@
     </Compile>
     <Compile Include="VeritabaniSec.Designer.cs">
       <DependentUpon>VeritabaniSec.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VeritabaniYedekleMail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VeritabaniYedekleMail.Designer.cs">
+      <DependentUpon>VeritabaniYedekleMail.cs</DependentUpon>
     </Compile>
     <Compile Include="YoneticiDogrulama.cs">
       <SubType>Form</SubType>
@@ -138,6 +164,12 @@
     <EmbeddedResource Include="Hakkinda.resx">
       <DependentUpon>Hakkinda.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="IcsOlusturma.resx">
+      <DependentUpon>IcsOlusturma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Loading.resx">
+      <DependentUpon>Loading.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -157,10 +189,13 @@
     <EmbeddedResource Include="VeritabaniSec.resx">
       <DependentUpon>VeritabaniSec.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="VeritabaniYedekleMail.resx">
+      <DependentUpon>VeritabaniYedekleMail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="YoneticiDogrulama.resx">
       <DependentUpon>YoneticiDogrulama.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Font\gilroy.otf" />
+    <None Include="gilroy.otf" />
     <None Include="localAdminSettings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>localAdminSettings.Designer.cs</LastGenOutput>
@@ -175,6 +210,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Settings1.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings1.Designer.cs</LastGenOutput>
+    </None>
     <None Include="svsettings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>svsettings.Designer.cs</LastGenOutput>
@@ -309,6 +348,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Logo1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="sdf.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

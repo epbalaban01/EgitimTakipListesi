@@ -45,6 +45,7 @@
             this.btn_kaydet = new System.Windows.Forms.Button();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.btn_ekle = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // comboboxSaat
@@ -229,13 +230,26 @@
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.Visible = false;
             // 
+            // btn_ekle
+            // 
+            this.btn_ekle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ekle.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btn_ekle.Location = new System.Drawing.Point(329, 31);
+            this.btn_ekle.Name = "btn_ekle";
+            this.btn_ekle.Size = new System.Drawing.Size(24, 23);
+            this.btn_ekle.TabIndex = 158;
+            this.btn_ekle.Text = "...";
+            this.btn_ekle.UseVisualStyleBackColor = true;
+            this.btn_ekle.Click += new System.EventHandler(this.btn_ekle_Click);
+            // 
             // EgitimEkle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(351, 286);
+            this.ClientSize = new System.Drawing.Size(365, 286);
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.btn_ekle);
             this.Controls.Add(this.btn_kaydet);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.lblid);
@@ -280,5 +294,6 @@
         private System.Windows.Forms.Button btn_kaydet;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button btn_ekle;
     }
 }

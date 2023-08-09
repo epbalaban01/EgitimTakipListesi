@@ -13,18 +13,20 @@ namespace Eğitim_Takip
 {
     public partial class SplashScreen : Form
     {
+        PrivateFontCollection privateFontCollection = new PrivateFontCollection();
         public SplashScreen()
 
         {
             InitializeComponent();
+
+            // Font dosyasını yükle
+            privateFontCollection.AddFontFile(Application.StartupPath + @"\Font\gilroy.otf");
         }
         
   
         private void SplashScreen_Load(object sender, EventArgs e)
         {
-            PrivateFontCollection pfc = new PrivateFontCollection();
-            pfc.AddFontFile(Application.StartupPath + @"\Font\gilroy.otf");
-            label1.Font = new Font(pfc.Families[0], 30, FontStyle.Regular);
+            label1.Font = new Font(privateFontCollection.Families[0], 30, FontStyle.Regular);
             timer1.Start();
         }
 

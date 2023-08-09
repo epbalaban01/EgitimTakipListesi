@@ -49,7 +49,7 @@
             this.textBox1.Location = new System.Drawing.Point(185, 35);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(165, 21);
-            this.textBox1.TabIndex = 1;
+            this.textBox1.TabIndex = 0;
             // 
             // textBox2
             // 
@@ -58,7 +58,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.PasswordChar = '●';
             this.textBox2.Size = new System.Drawing.Size(165, 21);
-            this.textBox2.TabIndex = 2;
+            this.textBox2.TabIndex = 1;
             // 
             // button1
             // 
@@ -183,6 +183,8 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panel2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "GirisYap";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Giriş Yap";

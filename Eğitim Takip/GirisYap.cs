@@ -21,9 +21,15 @@ namespace Eğitim_Takip
 
         static Regex ValidEmailRegex = CreateValidEmailRegex();
         SqlDataReader oku;
+
+        PrivateFontCollection privateFontCollection = new PrivateFontCollection();
+
         public GirisYap()
         {
             InitializeComponent();
+
+            // Font dosyasını yükle
+            privateFontCollection.AddFontFile(Application.StartupPath + @"\Font\gilroy.otf");
         }
 
         private void GirisYap_Shown(object sender, EventArgs e)
@@ -156,9 +162,7 @@ namespace Eğitim_Takip
 
         private void GirisYap_Load(object sender, EventArgs e)
         {
-            PrivateFontCollection pfc = new PrivateFontCollection();
-            pfc.AddFontFile(Application.StartupPath + @"\Font\gilroy.otf");
-            label3.Font = new Font(pfc.Families[0], 20, FontStyle.Italic);
+            label3.Font = new Font(privateFontCollection.Families[0], 20, FontStyle.Italic);
         }
     }
 }

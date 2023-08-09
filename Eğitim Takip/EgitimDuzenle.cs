@@ -106,7 +106,7 @@ namespace Eğitim_Takip
                         }
                         Form1 f1 = (Form1)Application.OpenForms["Form1"];
                         f1.tablo.Clear();
-                        f1.guncelle();
+                        f1.guncelle1();
                         f1.OtoSıraNo();
                     }
                     else if (label6.Text == "ISO Akademi")
@@ -133,7 +133,7 @@ namespace Eğitim_Takip
                         }
                         Form1 f1 = (Form1)Application.OpenForms["Form1"];
                         f1.tablo.Clear();
-                        f1.guncelle();
+                        f1.guncelle2();
                         f1.OtoSıraNo();
                     }
                     else if (label6.Text == "AKBANK Akademi")
@@ -160,7 +160,7 @@ namespace Eğitim_Takip
                         }
                         Form1 f1 = (Form1)Application.OpenForms["Form1"];
                         f1.tablo.Clear();
-                        f1.guncelle();
+                        f1.guncelle3();
                         f1.OtoSıraNo();
                     }
                     else if (label6.Text == "Microfon")
@@ -187,7 +187,7 @@ namespace Eğitim_Takip
                         }
                         Form1 f1 = (Form1)Application.OpenForms["Form1"];
                         f1.tablo.Clear();
-                        f1.guncelle();
+                        f1.guncelle4();
                         f1.OtoSıraNo();
                     }
                     else if (label6.Text == "Solidworks")
@@ -214,7 +214,7 @@ namespace Eğitim_Takip
                         }
                         Form1 f1 = (Form1)Application.OpenForms["Form1"];
                         f1.tablo.Clear();
-                        f1.guncelle();
+                        f1.guncelle5();
                         f1.OtoSıraNo();
                     }
                 }

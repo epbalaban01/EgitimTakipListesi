@@ -26,6 +26,7 @@ namespace Eğitim_Takip
 
         private void SunucuAyarlari_Load(object sender, EventArgs e)
         {
+           
             if (!(svsettings.Default.server == "" && svsettings.Default.database == "" && svsettings.Default.username == "" && svsettings.Default.password == ""))
             {
                 serverText.Text = server;

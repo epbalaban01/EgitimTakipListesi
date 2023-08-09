@@ -154,9 +154,7 @@
   <data name="iso_akademi_01_27539" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\iso-akademi-01-27539.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="gilroy" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\font\gilroy.otf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
+ 
   <data name="_14_Delete_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\14-Delete-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

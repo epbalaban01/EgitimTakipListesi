@@ -48,7 +48,7 @@
             this.button1.Location = new System.Drawing.Point(205, 122);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(85, 27);
-            this.button1.TabIndex = 4;
+            this.button1.TabIndex = 5;
             this.button1.Text = "Bağlan";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -60,7 +60,7 @@
             this.passwordText.Name = "passwordText";
             this.passwordText.PasswordChar = '●';
             this.passwordText.Size = new System.Drawing.Size(175, 20);
-            this.passwordText.TabIndex = 3;
+            this.passwordText.TabIndex = 4;
             // 
             // usernameText
             // 
@@ -68,7 +68,7 @@
             this.usernameText.Location = new System.Drawing.Point(115, 68);
             this.usernameText.Name = "usernameText";
             this.usernameText.Size = new System.Drawing.Size(175, 20);
-            this.usernameText.TabIndex = 2;
+            this.usernameText.TabIndex = 3;
             // 
             // databaseText
             // 
@@ -76,7 +76,7 @@
             this.databaseText.Location = new System.Drawing.Point(115, 39);
             this.databaseText.Name = "databaseText";
             this.databaseText.Size = new System.Drawing.Size(175, 20);
-            this.databaseText.TabIndex = 1;
+            this.databaseText.TabIndex = 2;
             // 
             // serverText
             // 
@@ -84,7 +84,7 @@
             this.serverText.Location = new System.Drawing.Point(115, 13);
             this.serverText.Name = "serverText";
             this.serverText.Size = new System.Drawing.Size(175, 20);
-            this.serverText.TabIndex = 0;
+            this.serverText.TabIndex = 1;
             // 
             // label5
             // 

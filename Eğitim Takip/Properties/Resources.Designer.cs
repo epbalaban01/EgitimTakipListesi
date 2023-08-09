@@ -301,16 +301,6 @@ namespace Eğitim_Takip.Properties {
         }
         
         /// <summary>
-        ///   System.Byte[] türünde yerelleştirilmiş bir kaynak arar.
-        /// </summary>
-        internal static byte[] gilroy {
-            get {
-                object obj = ResourceManager.GetObject("gilroy", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
         internal static System.Drawing.Bitmap immib {

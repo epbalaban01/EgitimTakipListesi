@@ -61,6 +61,7 @@
             this.gaib_egitimsaati = new System.Windows.Forms.Label();
             this.gaib_egitimtarihi = new System.Windows.Forms.Label();
             this.gaib_egitimbildirimi = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.akbank_egitimadi = new System.Windows.Forms.Label();
             this.akbank_zoomlink = new System.Windows.Forms.Label();
@@ -125,6 +126,8 @@
             this.timer3 = new System.Windows.Forms.Timer(this.components);
             this.timer4 = new System.Windows.Forms.Timer(this.components);
             this.timer5 = new System.Windows.Forms.Timer(this.components);
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.button3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel3.SuspendLayout();
@@ -135,7 +138,6 @@
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.statusStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -215,16 +217,15 @@
             this.gaib_kalanvakit.Size = new System.Drawing.Size(82, 13);
             this.gaib_kalanvakit.TabIndex = 108;
             this.gaib_kalanvakit.Text = "gaib kalan vakit";
-            this.gaib_kalanvakit.Visible = false;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Gilroy ExtraBold", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label15.Font = new System.Drawing.Font("Arial Narrow", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label15.ForeColor = System.Drawing.Color.White;
             this.label15.Location = new System.Drawing.Point(515, 23);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(325, 39);
+            this.label15.Size = new System.Drawing.Size(300, 37);
             this.label15.TabIndex = 1;
             this.label15.Text = "EĞİTİM TAKİP LİSTESİ";
             // 
@@ -309,6 +310,8 @@
             this.groupBox2.Controls.Add(this.gaib_egitimsaati);
             this.groupBox2.Controls.Add(this.gaib_egitimtarihi);
             this.groupBox2.Controls.Add(this.gaib_egitimbildirimi);
+            this.groupBox2.Controls.Add(this.button3);
+            this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.akbank_egitimadi);
             this.groupBox2.Controls.Add(this.akbank_zoomlink);
@@ -502,6 +505,18 @@
             this.gaib_egitimbildirimi.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.gaib_egitimbildirimi.Visible = false;
             // 
+            // button2
+            // 
+            this.button2.BackgroundImage = global::Eğitim_Takip.Properties.Resources.box;
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button2.Location = new System.Drawing.Point(666, 16);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(27, 28);
+            this.button2.TabIndex = 113;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Visible = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // button1
             // 
             this.button1.BackgroundImage = global::Eğitim_Takip.Properties.Resources.box;
@@ -510,6 +525,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(27, 28);
             this.button1.TabIndex = 113;
+            this.toolTip1.SetToolTip(this.button1, "Eğitimlere katıldığınız zaman işaretleri tıklayın sonra bu butona tıklayın..");
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -710,6 +726,7 @@
             this.btn_duzenle.Name = "btn_duzenle";
             this.btn_duzenle.Size = new System.Drawing.Size(27, 28);
             this.btn_duzenle.TabIndex = 111;
+            this.toolTip1.SetToolTip(this.btn_duzenle, "Eğitimleri düzenlemek için tıklayın");
             this.btn_duzenle.UseVisualStyleBackColor = true;
             this.btn_duzenle.Click += new System.EventHandler(this.btn_duzenle_Click);
             // 
@@ -721,6 +738,7 @@
             this.btn_ac.Name = "btn_ac";
             this.btn_ac.Size = new System.Drawing.Size(27, 28);
             this.btn_ac.TabIndex = 111;
+            this.toolTip1.SetToolTip(this.btn_ac, "Katıldığınız eğitimleri ekleyin");
             this.btn_ac.UseVisualStyleBackColor = true;
             this.btn_ac.Click += new System.EventHandler(this.btn_ac_Click);
             // 
@@ -782,7 +800,6 @@
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEnter);
-            this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
             // 
             // contextMenuStrip1
             // 
@@ -1047,8 +1064,6 @@
             // statusStrip1
             // 
             this.statusStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel2});
             this.statusStrip1.Location = new System.Drawing.Point(0, 640);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1232, 22);
@@ -1168,6 +1183,22 @@
             this.timer5.Interval = 1000;
             this.timer5.Tick += new System.EventHandler(this.timer5_Tick);
             // 
+            // toolTip1
+            // 
+            this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.toolTip1.ToolTipTitle = "Bilgi";
+            // 
+            // button3
+            // 
+            this.button3.BackgroundImage = global::Eğitim_Takip.Properties.Resources.Gear_icon;
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button3.Location = new System.Drawing.Point(592, 16);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(27, 28);
+            this.button3.TabIndex = 113;
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1178,12 +1209,12 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " Eğitim Takip Listesi";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.Shown += new System.EventHandler(this.Form1_Shown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -1197,8 +1228,6 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
             this.contextMenuStrip2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1299,6 +1328,9 @@
         private System.Windows.Forms.ToolStripMenuItem yenileToolStripMenuItem;
         private System.Windows.Forms.Button btn_duzenle;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button button3;
     }
 }
 
