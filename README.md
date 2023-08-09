@@ -23,7 +23,8 @@ Programı geliştirmek istiyorsanız indirip geliştirebilirsiniz. Programın ya
 - [x] Veritabanı kolay bir şekilde eğitime katıldın işareti tıklayarak arşive alabilirsiniz.
 - [x] Butonlar düzenleme yapıldı.
 - [x] İki farklı veritabanı ekleme özelliği getirildi. İster SQL ister Access ya da ikisi de seçip kayıt yapabilirsiniz.
-
+- [x] Eğitim ekle kısmında .ics dosyası seçince otomatik bilgileri doldurma eklendi.
+ 
 <b>Eklenebilecek Özellikler</b>
 
 - [ ] Ayarlar'dan eğitim hatırlatması için dakika olarak ayalanabilirdi.
